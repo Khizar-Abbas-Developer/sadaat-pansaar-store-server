@@ -4,6 +4,7 @@ import "dotenv/config";
 import compression from "compression";
 
 import connectDB from "./config/db.js";
+import productRouter from "./routes/product.js";
 
 // Initialize app
 const app = express();
@@ -41,7 +42,7 @@ app.use(
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-
+app.use("/api/v1/product", productRouter);
 
 // Start server
 app.listen(port, () => {
